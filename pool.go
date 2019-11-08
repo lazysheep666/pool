@@ -59,7 +59,7 @@ func (p *Pool) Release(r io.Closer) {
 	case p.resources <- r:
 		log.Println("Release", "In Queue")
 	default:
-		log.Panicln("Release", "Closing")
+		log.Println("Release", "Closing")
 		r.Close()
 	}
 }
